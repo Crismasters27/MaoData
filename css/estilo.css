@@ -12,6 +12,11 @@ body {
     background: linear-gradient(90deg, #3379FC 0%, #0337D2 50%, #020B35 100%);
 }
 
+/* Degradê exclusivo da tela de Hardware */
+body.tela-hardware {
+    background: linear-gradient(90deg, #FECF82 0%, #F37B3A 26%, #CC3957 50%, #002B6B 75%, #001637 100%);
+}
+
 /* CONTEÚDO PRINCIPAL */
 
 main {
@@ -26,13 +31,13 @@ main {
     display: flex;
     align-items: center;
     padding: 0 16px;
-    background: linear-gradient(90deg, #3379FC 0%, #0337D2 50%, #020B35 100%);
 }
 
 .cabecalho .nav-link {
     color: white;
     font-family: "Montserrat Alternates", sans-serif;
-    font-size: 18px;
+    /* clamp(mínimo, ideal-fluido, máximo) */
+    font-size: clamp(18px, 2vw, 25px);
     font-weight: 700;
 }
 
@@ -45,6 +50,12 @@ main {
     color: white;
 }
 
+.logo-maodata img {
+    width: 100px;   /* era 76px */
+    height: auto;
+    display: block;
+}
+
 /* LOGO */
 
 .logo-maodata {
@@ -53,7 +64,7 @@ main {
 }
 
 .logo-maodata img {
-    width: 76px;
+    width: 130px;
     height: auto;
     display: block;
 }
@@ -88,8 +99,8 @@ main {
 }
 
 .perfil img {
-    width: 58px;
-    height: 58px;
+    width: 64px;   /* era 58px */
+    height: 64px;
     object-fit: contain;
 }
 
@@ -177,42 +188,83 @@ h3 {
     color: white;
 }
 
+h3 {
+    font-size: clamp(20px, 2vw, 32px); /* ajuste conforme valor exato do Figma */
+    margin-bottom: 16px;
+}
+
 .bloco-historia p,
 section p {
     color: white;
+    font-size: 20px;
+    line-height: 1.6;
 }
 
-/* HERO */
+/* HERO/BANNER */
 
 .hero-maodata {
     width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* evita rolagem horizontal caso a imagem ultrapasse a largura */
 }
 
 .hero-imagem {
     width: 100%;
-    height: auto;
+    max-width: 1800px; /* bem maior que os 600px anteriores — quase a largura real da tela */
     display: block;
+    margin: 0 auto;
+}
+
+/* Margem lateral fluida — some quase no celular, ~80px em telas grandes tipo o Figma */
+.secao-largura {
+    padding-left: clamp(16px, 4vw, 80px);
+    padding-right: clamp(16px, 4vw, 80px);
+    max-width: 1920px;   /* trava o crescimento além da largura de referência do Figma */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-glossario {
     color: #11145a;
+    border-radius: 16px;      /* cantos mais arredondados, visual mais suave */
+    border: none;              /* tira a borda cinza padrão do Bootstrap */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* leve sombra, dá profundidade */
+    transition: transform 0.2s ease;
+}
+
+.card-glossario:hover {
+    transform: translateY(-4px); /* leve "flutuada" ao passar o mouse */
+}
+
+.card-glossario .card-body {
+    padding: 40px 20px;   /* mais respiro interno que o padrão do Bootstrap */
+}
+
+.card-glossario img {
+    width: 80px;    /* ícones maiores — eram 60px no HTML */
 }
 
 .card-glossario .card-title {
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 30px; /* troca esse valor pelo que você quer testar */
 }
 
 .faixa-ebooks {
     background: white;
     color: #11145a;
+    font-size: clamp(24px, 3.3vw, 30px); /* era sem tamanho definido — 64px confirmado no Figma */
+    border-radius: 30px;
+}
+
+.card-videocast,
+.card-game {
+    border-radius: 16px;
 }
 
 .ratio-videocast {
-  background-color: #060a2e;
+    background-color: #060a2e;
 }
 
 .card-game {

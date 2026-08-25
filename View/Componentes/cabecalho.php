@@ -1,12 +1,12 @@
 <?php
-    namespace MaoData\ti23t\View;
+    namespace MaoData\ti23t\View\Componentes;
 ?>
 
 <nav class="navbar navbar-expand-lg cabecalho">
   <div class="container-fluid">
     <!-- LOGO -->
-    <a class="navbar-brand logo-maodata" href="index.php">
-      <img src="img/logo-maodata.png" alt="MãoData">
+    <a class="navbar-brand logo-maodata" href="/MaoData/index.php">
+      <img src="/MaoData/img/logo-maodata.png" alt="MãoData">
     </a>
 
     <!-- BOTÃO MOBILE -->
@@ -17,9 +17,6 @@
     <!-- MENU -->
     <div class="collapse navbar-collapse" id="navbarMaoData">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Glossário</a>
         </li>
@@ -37,7 +34,7 @@
 
     <!-- PERFIL -->
     <a class="perfil" href="#">
-      <img src="img/perfil.png" alt="Perfil">
+      <img src="/MaoData/img/perfil.png" alt="Perfil">
     </a>
   </div>
 </nav>
