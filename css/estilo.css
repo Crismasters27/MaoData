@@ -17,6 +17,21 @@ body.tela-hardware {
     background: linear-gradient(90deg, #FECF82 0%, #F37B3A 26%, #CC3957 50%, #002B6B 75%, #001637 100%);
 }
 
+/* Degradê exclusivo da tela de Software */
+body.tela-software {
+    background: linear-gradient(90deg, #008DFF 0%, #241885 52%, #FF00D3 100%);
+}
+
+/* Degradê exclusivo da tela de Redes */
+body.tela-redes {
+    background: linear-gradient(90deg, #3EB4ED 12%, #5ACA62 100%, #006A17 100%);
+}
+
+/* Degradê exclusivo da tela de VideoCast */
+body.tela-videocast {
+    background: linear-gradient(90deg, #3379FC 0%, #0337D2 50%, #020B35 100%);
+}
+
 /* CONTEÚDO PRINCIPAL */
 
 main {
@@ -34,6 +49,7 @@ main {
 }
 
 .cabecalho .nav-link {
+    width: 100%;
     color: white;
     font-family: "Montserrat Alternates", sans-serif;
     /* clamp(mínimo, ideal-fluido, máximo) */
@@ -49,6 +65,55 @@ main {
 .cabecalho .nav-link.active {
     color: white;
 }
+
+.cabecalho .nav-item.dropdown {
+    position: relative;
+}
+
+.cabecalho .nav-item.dropdown:hover {
+    background-color: white;
+    border-radius: 16px 16px 0 0;
+}
+
+.cabecalho .nav-item.dropdown:hover > .nav-link {
+    color: #11145a;
+}
+
+.cabecalho .dropdown-menu {
+    background-color: white;
+    border: none;
+    border-radius: 0 0 16px 16px;
+    padding: 10px;
+    min-width: 190px;
+    margin-top: 0;
+    box-shadow: none;
+}
+
+.cabecalho .dropdown-menu {
+    background-color: white;
+    border: none;
+    border-radius: 0 0 16px 16px;
+    padding: 10px;
+    width: 100%;
+    min-width: 100%;
+    margin-top: 0;
+    box-shadow: none;
+}
+
+.cabecalho .dropdown-item:hover {
+    background-color: #3379FC;
+    color: white;
+}
+
+.cabecalho .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.cabecalho .dropdown-menu {
+    left: 0;
+    top: 100%;
+}
+
 
 .logo-maodata img {
     width: 100px;   /* era 76px */
@@ -90,6 +155,7 @@ main {
     opacity: 0.8;
 }
 
+
 /* PERFIL */
 
 .perfil {
@@ -125,7 +191,7 @@ main {
 }
 
 .footer-logo {
-    width: 100px;
+    width: 160px;
     height: auto;
 }
 
@@ -133,7 +199,7 @@ main {
     margin-top: 15px;
     color: white;
     font-family: "Montserrat Alternates", sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 400;
     text-align: center;
 }
@@ -147,7 +213,7 @@ main {
 .footer-titulo {
     color: white;
     font-family: "Montserrat Alternates", sans-serif;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 400;
     margin-bottom: 15px;
 }
@@ -160,8 +226,8 @@ main {
 }
 
 .redes-sociais img {
-    width: 30px;
-    height: 30px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
     display: block;
 }

@@ -1,5 +1,6 @@
 <?php
-    namespace MaoData\ti23t\View\Componentes;
+
+namespace MaoData\ti23t\View\Componentes;
 ?>
 
 <nav class="navbar navbar-expand-lg cabecalho">
@@ -17,15 +18,27 @@
     <!-- MENU -->
     <div class="collapse navbar-collapse" id="navbarMaoData">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Glossário</a>
+
+        <!-- GLOSSÁRIO -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Glossário
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/MaoData/View/Telas/Hardware.php">Hardware</a></li>
+            <li><a class="dropdown-item" href="/MaoData/View/Telas/Software.php">Software</a></li>
+            <li><a class="dropdown-item" href="/MaoData/View/Telas/Redes.php">Redes</a></li>
+          </ul>
         </li>
+        <!-- E-BOOK -->
         <li class="nav-item">
           <a class="nav-link" href="#">E-Book</a>
         </li>
+        <!-- VIDEOCAST -->
         <li class="nav-item">
-          <a class="nav-link" href="#">VideoCast</a>
+          <a class="nav-link" href="/MaoData/View/Telas/VideoCast.php">VideoCast</a>
         </li>
+        <!-- GAME -->
         <li class="nav-item">
           <a class="nav-link" href="#">Game</a>
         </li>
