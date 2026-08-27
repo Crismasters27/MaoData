@@ -30,6 +30,9 @@ body.tela-redes {
 /* Degradê exclusivo da tela de VideoCast */
 body.tela-videocast {
     background: linear-gradient(90deg, #3379FC 0%, #0337D2 50%, #020B35 100%);
+    background-attachment: fixed;
+    background-size: cover; /* Opcional: cobre toda a tela */
+    background-position: center; /* Opcional: centraliza a imagem */
 }
 
 /* CONTEÚDO PRINCIPAL */
