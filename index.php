@@ -203,9 +203,6 @@ namespace MaoData\ti23t;
       </div>
     </section>
 
-    </div>
-    </section>
-
   </main>
 
   <?php
