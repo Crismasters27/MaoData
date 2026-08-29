@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -30,10 +34,18 @@ body.tela-redes {
 /* Degradê exclusivo da tela de VideoCast */
 body.tela-videocast {
     background-image: url('/MaoData/img/background-image.png'), linear-gradient(90deg, #3379FC 0%, #0337D2 50%, #020B35 100%);
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     background-size: cover; /* Opcional: cobre toda a tela */
     background-repeat: no-repeat;
+}
+
+body.tela-login {
+    background: linear-gradient(90deg, #3379FC 0%, #0337D2 37%, #020B35 100%);
+}
+
+body.tela-cadastrar {
+    background: linear-gradient(90deg, #3379FC 0%, #0337D2 37%, #020B35 100%);
 }
 
 /* CONTEÚDO PRINCIPAL */
@@ -55,7 +67,6 @@ main {
 .cabecalho .nav-link {
     color: white;
     font-family: "Montserrat Alternates", sans-serif;
-    /* clamp(mínimo, ideal-fluido, máximo) */
     font-size: clamp(18px, 2vw, 25px);
     font-weight: 700;
 }
@@ -87,20 +98,12 @@ main {
     border: none;
     border-radius: 0 0 16px 16px;
     padding: 10px;
-    min-width: 190px;
-    margin-top: 0;
-    box-shadow: none;
-}
-
-.cabecalho .dropdown-menu {
-    background-color: white;
-    border: none;
-    border-radius: 0 0 16px 16px;
-    padding: 10px;
     width: 100%;
     min-width: 100%;
     margin-top: 0;
     box-shadow: none;
+    left: 0;
+    top: 100%;
 }
 
 .cabecalho .dropdown-item:hover {
@@ -112,17 +115,10 @@ main {
     display: block;
 }
 
-.cabecalho .dropdown-menu {
-    left: 0;
-    top: 100%;
+.cabecalho .dropdown-toggle::after {
+    display: none;
 }
 
-
-.logo-maodata img {
-    width: clamp(90px, 10vw, 130px);
-    height: auto;
-    display: block;
-}
 
 /* LOGO */
 
@@ -162,15 +158,41 @@ main {
 /* PERFIL */
 
 .perfil {
-    margin-left: auto;
     display: flex;
     align-items: center;
 }
 
 .perfil img {
-    width: 64px;   /* era 58px */
+    width: 64px;
     height: 64px;
     object-fit: contain;
+}
+
+
+/* BUSCA */
+
+.busca-termo-form {
+    display: none;
+    flex-shrink: 1;
+}
+
+body.tela-hardware .busca-termo-form,
+body.tela-software .busca-termo-form,
+body.tela-redes .busca-termo-form {
+    display: flex;
+}
+
+.busca-termo-input {
+    border-radius: 20px;
+    border: none;
+    padding: 8px 16px;
+    width: clamp(120px, 18vw, 280px);
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+.busca-termo-input:focus {
+    box-shadow: none;
+    outline: 2px solid white;
 }
 
 /* FOOTER */
@@ -182,9 +204,7 @@ main {
 
 .footer-conteudo {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* display, align-items e justify-content agora vêm das classes Bootstrap no HTML */
 }
 
 .footer-esquerda {
@@ -280,15 +300,15 @@ section p {
 
 .hero-imagem {
     width: 100%;
-    max-width: 1800px; /* bem maior que os 600px anteriores — quase a largura real da tela */
+    max-width: none; /* bem maior que os 600px anteriores — quase a largura real da tela */
     display: block;
-    margin: 0 auto;
+    margin: 0;
 }
 
 /* Margem lateral fluida — some quase no celular, ~80px em telas grandes tipo o Figma */
 .secao-largura {
-    padding-left: clamp(16px, 4vw, 80px);
-    padding-right: clamp(16px, 4vw, 80px);
+    padding-left: clamp(16px, 4vw, 120px);
+    padding-right: clamp(16px, 4vw, 120px);
     max-width: 1920px;   /* trava o crescimento além da largura de referência do Figma */
     margin-left: auto;
     margin-right: auto;
@@ -339,4 +359,140 @@ section p {
 .card-game {
     background: white;
     color: #11145a;
+}
+
+/* ===================================================== */
+/* PÁGINAS DE AUTENTICAÇÃO (Login / Cadastrar) */
+/* ===================================================== */
+
+.auth-logo {
+    width: 220px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-titulo {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 42px);
+    color: white;
+}
+
+.auth-subtitulo {
+    color: white;
+    font-size: clamp(16px, 1.3vw, 20px);
+    margin-top: 16px;
+    line-height: 1.5;
+}
+
+/* Card branco flutuante */
+.auth-card {
+    background: white;
+    border-radius: 24px;
+    padding: clamp(30px, 3vw, 50px);
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.auth-card-titulo {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #11145a;
+}
+
+/* Wrapper de cada campo — position relative pro ícone se posicionar dentro */
+.auth-input-wrapper {
+    position: relative;
+}
+
+.auth-input-icone {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9a9a9a;
+    font-size: 18px;
+    pointer-events: none; /* garante que clicar no ícone não atrapalhe o foco no input */
+}
+
+.auth-input {
+    border-radius: 30px;
+    border: 1px solid #d0d0d0;
+    padding: 14px 20px 14px 48px; /* padding-left maior, pra abrir espaço pro ícone */
+    font-family: "Montserrat Alternates", sans-serif;
+    width: 100%;
+}
+
+.auth-input:focus {
+    box-shadow: none;
+    border-color: #3379FC;
+}
+
+.auth-btn-primario {
+    background: linear-gradient(90deg, #3379FC 0%, #0337D2 100%);
+    color: white;
+    border-radius: 30px;
+    padding: 14px;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    border: none;
+}
+
+.auth-btn-primario:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+.auth-btn-secundario {
+    background: white;
+    color: #11145a;
+    border: 2px solid #3379FC;
+    border-radius: 30px;
+    padding: 12px;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.auth-btn-secundario:hover {
+    background: #f0f4ff;
+    color: #11145a;
+}
+
+.auth-link-texto {
+    color: #333;
+    font-size: 15px;
+}
+
+.auth-link {
+    color: #3379FC;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+.auth-lado-esquerdo {
+    margin-left: 60px;
+    text-align: center; /* centraliza título e parágrafo, alinhado com a logo */
+}
+
+.auth-lado-direito {
+    margin-right: -20px; /* ajuste o valor */
+}
+
+.auth-linha {
+    justify-content: space-around;
+    padding-left: 60px;
+    padding-right: 20px;
 }

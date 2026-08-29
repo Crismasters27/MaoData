@@ -2,9 +2,9 @@
     namespace MaoData\ti23t\View\Componentes;
 ?>
 <footer class="footer-maodata">
-  <div class="footer-conteudo">
+  <div class="footer-conteudo d-flex flex-column flex-lg-row align-items-center justify-content-lg-between gap-4">
 
-    <div class="footer-esquerda">
+    <div class="footer-esquerda text-center text-lg-start">
       <img src="/MaoData/img/logo-maodata.png" alt="MãoData" class="footer-logo">
       <p class="footer-descricao">
         Ecossistema de Inclusão e Acessibilidade<br>
@@ -12,7 +12,7 @@
       </p>
     </div>
 
-    <div class="footer-direita">
+    <div class="footer-direita text-center">
       <h5 class="footer-titulo">
         Conheça nossas redes sociais
       </h5>
